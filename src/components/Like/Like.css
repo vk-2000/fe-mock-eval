@@ -1,0 +1,26 @@
+.like-container {
+    position: relative;
+    height: 35px;
+    width: 35px;
+}
+.like-container img {
+    height: 35px;
+    width: 35px;
+    /* object-fit: cover; */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.like-container div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+}

@@ -1,0 +1,15 @@
+nav {
+    background-color: #38497E;
+    height: 10vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.logo {
+    font-size: x-large;
+    margin: 0 2rem;
+    color: white;
+}
+.logo span {
+    font-weight: bold;
+}

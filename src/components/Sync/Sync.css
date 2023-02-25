@@ -1,0 +1,20 @@
+.sync-container {
+    height: 80vh;
+    position: relative;
+}
+.sync-container div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.sync-container div button {
+    background-color: #4C63AA;
+    border: none;
+    height: 50px;
+    width: 200px;
+    font-size: large;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+}

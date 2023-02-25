@@ -1,0 +1,56 @@
+.song-card {
+    display: flex;
+    height: 250px;
+    width: 250px;
+    flex-direction: column;
+    align-items: center;
+    background-color: #DFDFDF;
+    margin: 2rem;
+    border-radius: 10px;
+    padding: 20px;
+}
+.song-card:nth-child(even) {
+    background-color: #ABABAB;
+}
+.song-img-container {
+    min-height: 150px;
+    min-width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 1rem 0;
+    border: 2px solid black;
+}
+.song-img-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.song-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    justify-content: space-between;
+}
+.song-name {
+    font-size: 1.5rem;
+    font-weight: 200;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    max-width: 200px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.artist-name {
+    font-size: 1rem;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    max-width: 200px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

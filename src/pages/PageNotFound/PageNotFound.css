@@ -1,0 +1,10 @@
+.page-not-found {
+    height: 90vh;
+    position: relative;
+}
+.page-not-found div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
