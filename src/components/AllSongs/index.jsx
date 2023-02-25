@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GET_ALL_SONGS } from '../../constants/apiEndPoints';
 import iconGenre from '../../assets/images/icon-genre.svg';
@@ -7,7 +7,7 @@ import './AllSongs.css';
 import SongCard from '../SongCard';
 
 const AllSongs = () => {
-  const [songs, setSongs] = React.useState([]);
+  const [songs, setSongs] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,21 +20,24 @@ const AllSongs = () => {
     });
   }, []);
   return (
-    <div className="songs-body">
-      <div className="songs-header">
-        <div>
-          <h1>All Songs</h1>
+    (songs) ? (
+      <div className="songs-body">
+        <div className="songs-header">
+          <div>
+            <h1>All Songs</h1>
+          </div>
+          <button data-testid="btn-genre" className="btn-genre" type="button" onClick={() => navigate('/categories')}>
+            <img src={iconGenre} alt="icon_genre" />
+          </button>
         </div>
-        <button className="btn-genre" type="button" onClick={() => navigate('/categories')}>
-          <img src={iconGenre} alt="icon_genre" />
-        </button>
+        <div className="songs-container">
+          {songs.map((song) => (
+            <SongCard key={song.id} song={song} />
+          ))}
+        </div>
       </div>
-      <div className="songs-container">
-        {songs.map((song) => (
-          <SongCard song={song} />
-        ))}
-      </div>
-    </div>
+    )
+      : <div>Loading...</div>
 
   );
 };

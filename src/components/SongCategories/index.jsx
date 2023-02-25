@@ -8,11 +8,14 @@ import SongCard from '../SongCard';
 import genreIcons from '../../constants/genreIcons';
 
 const SongCategories = () => {
-  const [songCategorized, setSongsCategorized] = useState([]);
+  const [songCategorized, setSongsCategorized] = useState();
   const navigate = useNavigate();
   useEffect(() => {
     makeRequest(GET_ALL_SONGS, {}, navigate).then((response) => {
       const songs = response.data;
+      if (songs.length === 0) {
+        navigate('/no-records');
+      }
       const categorizedSongs = songs.reduce(
         (acc, song) => {
           const category = song.genre.name;
@@ -29,32 +32,34 @@ const SongCategories = () => {
   }, []);
 
   return (
-    <div className="songs-body">
-      <div className="songs-header">
-        <div>
-          <h1>Genres</h1>
-        </div>
-        <button onClick={() => navigate('/')} className="btn-grid" type="button">
-          <img src={iconGrid} alt="icon_grid" />
-        </button>
-      </div>
-      <div className="category-body">
-        {Object.keys(songCategorized).map((category) => (
-          <div className="category-container">
-            <div className="category-header">
-              <img src={genreIcons[category.toLowerCase()]} alt={category} />
-              <h3>{category}</h3>
-            </div>
-            <div className="category-songs">
-              {songCategorized[category].map((song) => (
-                <SongCard song={song} />
-              ))}
-            </div>
+    (songCategorized) ? (
+      <div className="songs-body">
+        <div className="songs-header">
+          <div>
+            <h1>Genres</h1>
           </div>
-        ))}
+          <button data-testid="btn-grid" onClick={() => navigate('/')} className="btn-grid" type="button">
+            <img src={iconGrid} alt="icon_grid" />
+          </button>
+        </div>
+        <div className="category-body">
+          {Object.keys(songCategorized).map((category) => (
+            <div className="category-container">
+              <div className="category-header">
+                <img src={genreIcons[category.toLowerCase()]} alt={category} />
+                <h3>{category}</h3>
+              </div>
+              <div className="category-songs">
+                {songCategorized[category].map((song) => (
+                  <SongCard song={song} />
+                ))}
+              </div>
+            </div>
+          ))}
 
+        </div>
       </div>
-    </div>
+    ) : <div>Loading...</div>
 
   );
 };

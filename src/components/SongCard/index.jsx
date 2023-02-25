@@ -28,9 +28,9 @@ const SongCard = ({ song }) => {
     setLikesCount(isLiked ? likesCount - 1 : likesCount + 1);
   };
   return (
-    <div className="song-card">
+    <div data-testid="song-card" className="song-card">
       <div className="song-img-container">
-        <img src={song.imageUrl} alt="" />
+        <img src={song.imageUrl} alt="songIcon" />
       </div>
       <div className="song-info">
         <div>

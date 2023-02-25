@@ -8,7 +8,7 @@ const Like = ({ isLiked, likesCount, onClick }) => (
   // eslint-disable-next-line max-len
   // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
   <div className="like-container" onClick={onClick}>
-    <img src={isLiked ? heartRed : heartGray} alt="" />
+    <img src={isLiked ? heartRed : heartGray} alt="like-icon" />
     <div className="likes-count">{likesCount}</div>
   </div>
 );

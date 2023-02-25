@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import './Sync.css';
 
 const Sync = () => {
@@ -9,7 +10,7 @@ const Sync = () => {
       <div>
         <h1>:((</h1>
         <h2>Seems a bit empty in here</h2>
-        <button type="button" onClick={() => navigate('/')}>
+        <button data-testid="btn-sync" type="button" onClick={() => navigate('/')}>
           Sync
         </button>
       </div>
